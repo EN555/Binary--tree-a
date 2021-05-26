@@ -27,6 +27,7 @@ struct keep_num{
 bool operator==(const keep_num& other1, const keep_num& other2){
     return (other1.val) == (other2.val);
 }
+
 //--------------------------------------------------------------
 
 TEST_CASE("Tree Building") {    //root left right
@@ -144,37 +145,35 @@ TEST_CASE("pre_order") {    //root left right
 
     //----------------CHECK OBJECTS----------------------//
 
-    keep_num* n1 = new keep_num();
-    keep_num* n2= new keep_num();
-    keep_num* n3= new keep_num();
-    keep_num* n4= new keep_num();
-    keep_num* n5= new keep_num();
-    keep_num* n6= new keep_num();
-    keep_num* n7= new keep_num();
-    keep_num* n8= new keep_num();
-    n1->val =10;
-    n2->val = 9;
-    n3->val =5;
-    n4->val =11;
-    n5->val =6;
-    n6->val =1;
-    n7->val =28;
-    n8->val =91;
+    keep_num n1;
+    keep_num n2;
+    keep_num n3;
+    keep_num n4;
+    keep_num n5;
+    keep_num n6;
+    keep_num n7;
+    keep_num n8;
+    n1.val =10;
+    n2.val = 9;
+    n3.val =5;
+    n4.val =11;
+    n5.val =6;
+    n6.val =1;
+    n7.val =28;
+    n8.val =91;
 
     //------------tree----------------
-    BinaryTree<keep_num*> tree_of_objects;
+    BinaryTree<keep_num> tree_of_objects;
     tree_of_objects.add_root(n1).add_left(n1,n2).add_right(n1, n3).add_left(n3, n4)
             .add_right(n3, n5).add_left(n5, n6).add_left(n6, n7).add_right(n7, n8);
     //--------------------------------
-    vector<keep_num*> vect{n1, n2, n3, n4, n5, n6, n7, n8};
+    vector<keep_num> vect{n1, n2, n3, n4, n5, n6, n7, n8};
     auto ott = vect.begin();
     for(auto it = tree_of_objects.begin_preorder(); it != tree_of_objects.end_preorder(); ++it){
-                CHECK((*it)->val == (*ott)->val);
+                CHECK((*it).val == ott->val);
         ++ott;
     }
 
-    delete n1; delete n2; delete n3; delete n4;
-    delete n5; delete n6; delete n7; delete n8;
 }
 
 TEST_CASE("in_order"){
@@ -224,37 +223,34 @@ TEST_CASE("in_order"){
 
     //----------------CHECK OBJECTS----------------------//
 
-    keep_num* n1 = new keep_num();
-    keep_num* n2= new keep_num();
-    keep_num* n3= new keep_num();
-    keep_num* n4= new keep_num();
-    keep_num* n5= new keep_num();
-    keep_num* n6= new keep_num();
-    keep_num* n7= new keep_num();
-    keep_num* n8= new keep_num();
-    n1->val =10;
-    n2->val = 9;
-    n3->val =5;
-    n4->val =11;
-    n5->val =6;
-    n6->val =1;
-    n7->val =28;
-    n8->val =91;
+    keep_num n1;
+    keep_num n2;
+    keep_num n3;
+    keep_num n4;
+    keep_num n5;
+    keep_num n6;
+    keep_num n7;
+    keep_num n8;
+    n1.val =10;
+    n2.val = 9;
+    n3.val =5;
+    n4.val =11;
+    n5.val =6;
+    n6.val =1;
+    n7.val =28;
+    n8.val =91;
 
     //------------tree----------------
-    BinaryTree<keep_num*> tree_of_objects;
+    BinaryTree<keep_num> tree_of_objects;
     tree_of_objects.add_root(n1).add_left(n1,n2).add_right(n1, n3).add_left(n3, n4)
             .add_right(n3, n5).add_left(n5, n6).add_left(n6, n7).add_right(n7, n8);
     //--------------------------------
-    vector<keep_num*> vect{n2, n1, n4, n3, n7, n8, n6, n5};
+    vector<keep_num> vect{n2, n1, n4, n3, n7, n8, n6, n5};
     auto ott = vect.begin();
     for(auto it = tree_of_objects.begin_inorder(); it != tree_of_objects.end_inorder(); ++it){
-                CHECK((*it)->val == (*ott)->val);
+                CHECK((*it).val == (*ott).val);
         ++ott;
     }
-
-    delete n1; delete n2; delete n3; delete n4;
-    delete n5; delete n6; delete n7; delete n8;
 
 }
 
@@ -306,36 +302,34 @@ TEST_CASE("post_order"){
 
     //----------------CHECK OBJECTS----------------------//
 
-    keep_num* n1 = new keep_num();
-    keep_num* n2= new keep_num();
-    keep_num* n3= new keep_num();
-    keep_num* n4= new keep_num();
-    keep_num* n5= new keep_num();
-    keep_num* n6= new keep_num();
-    keep_num* n7= new keep_num();
-    keep_num* n8= new keep_num();
-    n1->val =10;
-    n2->val = 9;
-    n3->val =5;
-    n4->val =11;
-    n5->val =6;
-    n6->val =1;
-    n7->val =28;
-    n8->val =91;
+    keep_num n1;
+    keep_num n2;
+    keep_num n3;
+    keep_num n4;
+    keep_num n5;
+    keep_num n6;
+    keep_num n7;
+    keep_num n8;
+    n1.val =10;
+    n2.val = 9;
+    n3.val =5;
+    n4.val =11;
+    n5.val =6;
+    n6.val =1;
+    n7.val =28;
+    n8.val =91;
 
     //------------tree----------------
-    BinaryTree<keep_num*> tree_of_objects;
+    BinaryTree<keep_num> tree_of_objects;
     tree_of_objects.add_root(n1).add_left(n1,n2).add_right(n1, n3).add_left(n3, n4)
             .add_right(n3, n5).add_left(n5, n6).add_left(n6, n7).add_right(n7, n8);
     //--------------------------------
-    vector<keep_num*> vect{n2, n4, n8, n7, n6, n5, n3, n1};
+    vector<keep_num> vect{n2, n4, n8, n7, n6, n5, n3, n1};
     auto ott = vect.begin();
     for(auto it = tree_of_objects.begin_postorder(); it != tree_of_objects.end_postorder(); ++it){
-                CHECK((*it)->val == (*ott)->val);
+                CHECK((*it).val == (*ott).val);
         ++ott;
     }
-    delete n1; delete n2; delete n3; delete n4;
-    delete n5; delete n6; delete n7; delete n8;
 }
 
 TEST_CASE("For Each"){
